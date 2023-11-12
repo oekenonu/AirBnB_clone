@@ -14,7 +14,7 @@ class HBNBCommand(cmd.Cmd):
     """Entry point for command interrpreter """
 
     prompt = "(hbnb) "
-    __classes = ["BaseModel", "User"]
+    __classes = ["BaseModel", "User", "Place", "State", "City", "Amenity", "Review"]
 
 
     def do_quit(self, args):
