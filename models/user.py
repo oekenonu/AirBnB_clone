@@ -10,4 +10,3 @@ class User(base_model.BaseModel):
     password = ""
     first_name = ""
     last_name = ""
-

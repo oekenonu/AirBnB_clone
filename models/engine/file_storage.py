@@ -10,6 +10,7 @@ from models.city import City
 from models.amenity import Amenity
 from model.review import Review
 
+
 class FileStorage:
     """Controls how objects are stored"""
 
