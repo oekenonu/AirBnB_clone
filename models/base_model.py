@@ -1,4 +1,5 @@
-""" Module that defines a base model """
+#!/usr/bin/python3
+"""Module that defines a BaseModel class"""
 from datetime import datetime
 import uuid
 import models
@@ -8,10 +9,11 @@ class BaseModel:
     """ BaseModel for class """
 
     def __init__(self, *args, **kwargs) -> None:
-        """ Initialize base_mdel class
-            Arguments:
-            args - objects
-            kwargs - objects
+        """Initialize base_model class
+
+        Args:
+            *args - not used
+            **kwargs - key value pairs representing attributes
         """
 
         if len(kwargs) != 0:
@@ -34,13 +36,14 @@ class BaseModel:
         return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
 
     def save(self):
-        """ save obj to file """
+        """update time with current time """
         self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
         """ return a copy of dictionary containing
-        all keys / values of __dict__ """
+        all keys / values of __dict__
+        """
         my_dict_copy = self.__dict__.copy()
         my_dict_copy["__class__"] = self.__class__.__name__
         my_dict_copy["created_at"] = self.created_at.isoformat()

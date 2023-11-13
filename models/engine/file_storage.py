@@ -12,7 +12,12 @@ from models.review import Review
 
 
 class FileStorage:
-    """Controls how objects are stored"""
+    """Represent a storage engine.
+
+    Attributes:
+        __file_path (str): file to save objects
+        __objects (dict): dictionary of objects
+    """
 
     __file_path = 'file.json'
     __objects = {}
@@ -22,7 +27,7 @@ class FileStorage:
         return self.__objects
 
     def new(self, obj):
-        """Creates a new instance object"""
+        """Creates a new instance object and set name"""
         key = f'{obj.__class__.__name__}.{obj.id}'
         self.__objects[key] = obj
 
